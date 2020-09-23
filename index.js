@@ -57,9 +57,7 @@ const getSpecifyProduct = async (product) => {
   data.options = JSON.parse(data.options);
   data.options.feeback = Array
     .from({ length: Math.floor(Math.random() * (6 - 2)) + 2 })
-    .fill(null)
-    .map(() => (
-    {
+    .map(() => ({
       id: ID(),
       star: 5,
       comment: getRandomComment(),
