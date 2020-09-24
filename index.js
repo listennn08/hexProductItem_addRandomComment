@@ -51,7 +51,7 @@ const getProductsID = async () => {
   }
 };
 
-const getSpecifyProduct = async (product) => {
+const getSpecificProduct = async (product) => {
   const resp = await axios.get(`${process.env.API}${process.env.UUID}/ec/product/${product}`);
   const { data } = resp.data;
   data.options = JSON.parse(data.options);
@@ -96,7 +96,7 @@ const main = async () => {
   await getProductsID();
   axios.defaults.headers.common.Authorization = `Bearer ${token}`
   products.forEach((item, index) => {
-    getSpecifyProduct(item);
+    getSpecificProduct(item);
     setTimeout(() => {
       getData(index, item);
     }, 5000)
